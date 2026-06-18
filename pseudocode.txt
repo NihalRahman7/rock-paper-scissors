@@ -1,0 +1,64 @@
+Step 1: Write logic for computer choice
+FUNCTION called getComputerChoice
+START
+    num variable is equal to a random number from Math.random() from 0 to 2
+    choice variable is equal to an empty string
+    IF num is equal 0 THEN
+        choice is equal to "rock"
+    ELSE IF num is equal 1 THEN
+        choise is equal to "paper"
+    ELSE IF num is equal 2 THEN
+        choise is equal to "scissors"
+    RETURN choice
+END
+Test with a console log
+
+Step 2: Write logic for human choice
+FUNCTION called getHumanChoice
+START
+    prompt the user for a choice
+    choice variable is equal to the choice given
+    RETURN choice
+END
+Test with a console log
+
+Step 3: Declaring score variables for both players
+Create global variables humanScore and computerScore
+initialize both variables to 0
+
+Step 4: Write logic to play a single round
+FUNCTION called playRound
+playRound receives 2 parameters
+    humanChoice and computerChoice
+START
+    message variable is an empty string
+    make humanChoice case-insensitive
+    SWITCH for both choices
+        CASE where humanChoice is "rock" and computerChoice is "paper" THEN
+            message is equal to "You lose! Paper beats rock"
+            increment computerScore by 1
+        CASE where humanChoice is "rock" and computerChoice is "scissors" THEN
+            message is equal to "You win! Rock beats scissors"
+            increment humanScore by 1
+        CASE where humanChoice is "paper" and computerChoice is "rock" THEN
+            message is equal to "You win! Paper beats rock"
+            increment humanScore by 1
+        CASE where humanChoice is "paper" and computerChoice is "scissors" THEN
+            message is equal to "You lose! Scissors beats paper"
+            increment computerScore by 1
+        CASE where humanChoice is "scissors" and computerChoice is "paper" THEN
+            message is equal to "You win! Scissors beats paper"
+            increment humanScore by 1
+        CASE where humanChoice is "scissors" and computerChoice is "rock" THEN
+            message is equal to "You lose! Rock beats scissors"
+            increment computerScore by 1
+    RETURN message
+END
+
+Step 5:Write logic to play the entire game
+FUNCTION called playGame
+move the playRound FUNCTION and the score variables so that they're declared here
+FOR index = 1 and index is less than or equal to 5
+    call the playGame FUNCTION
+    increment the index by 1
+END
