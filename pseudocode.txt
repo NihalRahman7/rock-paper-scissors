@@ -1,13 +1,13 @@
 Step 1: Write logic for computer choice
 FUNCTION called getComputerChoice
 START
-    num variable is equal to a random number from Math.random() from 0 to 2
+    randomNum variable is equal to a random number from Math.random() from 0 to 2
     choice variable is equal to an empty string
-    IF num is equal 0 THEN
+    IF randomNum is equal 0 THEN
         choice is equal to "rock"
-    ELSE IF num is equal 1 THEN
+    ELSE IF randomNum is equal 1 THEN
         choise is equal to "paper"
-    ELSE IF num is equal 2 THEN
+    ELSE IF randomNum is equal 2 THEN
         choise is equal to "scissors"
     RETURN choice
 END
