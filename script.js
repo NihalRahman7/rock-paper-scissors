@@ -1,3 +1,5 @@
+const MAX_SCORE = 5;
+
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     let choice = "";
@@ -53,103 +55,80 @@ const choices = ["rock", "paper", "scissors"];
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
+const buttons = document.querySelectorAll("button");
 
 let humanScoreMsg = document.querySelector("#humanScoreMsg");
 let computerScoreMsg = document.querySelector("#computerScoreMsg");
 let humanScore = 0;
 let computerScore = 0;
 
+buttons.forEach(button => {
+    button.addEventListener("click", function(event) {
+        const clickedButton = event.currentTarget;
+        
+        if (clickedButton.textContent = "Rock"){
+            humanSelection = choices[0];
+            const computerSelection = getComputerChoice();
+            let message = playRound(humanSelection, computerSelection);
 
-btnRock.addEventListener("click", function() {
-    humanSelection = choices[0];
-    const computerSelection = getComputerChoice();
-    let message = playRound(humanSelection, computerSelection);
-    console.log(humanSelection);
-    console.log(computerSelection);
-    console.log(message);
+            if (message.includes("tie")){
+                answer.textContent = message;
+                answerContainer.append(answer);
+            } 
+            if (message.includes("win")){
+                humanScoreMsg.textContent = `Human score: ${++humanScore}`
+                answer.textContent = message;
+                answerContainer.append(answer);
+            }    
+            if (message.includes("lose")){
+                computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
+                answer.textContent = message;
+                answerContainer.append(answer);
+            }
+        }
 
-    if (message.includes("tie")){
-        answer.textContent = message;
-        answerContainer.append(answer);
-    } 
-    if (message.includes("win")){
-        humanScoreMsg.textContent = `Human score: ${++humanScore}`
-        answer.textContent = message;
-        answerContainer.append(answer);
-    }
-    if (message.includes("lose")){
-        computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
-        answer.textContent = message;
-        answerContainer.append(answer);
-    }
+        else if (clickedButton.textContent = "Paper"){
+            humanSelection = choices[1];
+            const computerSelection = getComputerChoice();
+            let message = playRound(humanSelection, computerSelection);
 
-    if (humanScore == 5){
-        answer.textContent = "You won the game! Congratulations!";
-    }
-    if (computerScore == 5){
-        answer.textContent = "The computer won the game! Better luck next time."
-    }
-});
+            if (message.includes("tie")){
+                answer.textContent = message;
+                answerContainer.append(answer);
+            } 
+            if (message.includes("win")){
+                humanScoreMsg.textContent = `Human score: ${++humanScore}`
+                answer.textContent = message;
+                answerContainer.append(answer);
+            }
+            if (message.includes("lose")){
+                computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
+                answer.textContent = message;
+                answerContainer.append(answer);
+            }
+        }
 
-btnPaper.addEventListener("click", function() {
-    humanSelection = choices[1];
-    const computerSelection = getComputerChoice();
-    let message = playRound(humanSelection, computerSelection);
-    console.log(humanSelection);
-    console.log(computerSelection);
-    console.log(message);
+        else if (clickedButton.textContent = "Scissors"){
+            humanSelection = choices[2];
+            const computerSelection = getComputerChoice();
+            let message = playRound(humanSelection, computerSelection);
 
-    if (message.includes("tie")){
-        answer.textContent = message;
-        answerContainer.append(answer);
-    } 
-    if (message.includes("win")){
-        humanScoreMsg.textContent = `Human score: ${++humanScore}`
-        answer.textContent = message;
-        answerContainer.append(answer);
-    }
-    if (message.includes("lose")){
-        computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
-        answer.textContent = message;
-        answerContainer.append(answer);
-    }
+            if (message.includes("tie")){
+                answer.textContent = message;
+                answerContainer.append(answer);
+            } 
+            if (message.includes("win")){
+                humanScoreMsg.textContent = `Human score: ${++humanScore}`
+                answer.textContent = message;
+                answerContainer.append(answer);
+            }
+            if (message.includes("lose")){
+                computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
+                answer.textContent = message;
+                answerContainer.append(answer);
+            }
+        }
+    })
+})
 
-    if (humanScore == 5){
-        answer.textContent = "You won the game! Congratulations!";
-    }
-    if (computerScore == 5){
-        answer.textContent = "The computer won the game! Better luck next time."
-    }
-});
-
-btnScissors.addEventListener("click", function() {
-    humanSelection = choices[2];
-    const computerSelection = getComputerChoice();
-    let message = playRound(humanSelection, computerSelection);
-    console.log(humanSelection);
-    console.log(computerSelection);
-    console.log(message);
-
-    if (message.includes("tie")){
-        answer.textContent = message;
-        answerContainer.append(answer);
-    } 
-    if (message.includes("win")){
-        humanScoreMsg.textContent = `Human score: ${++humanScore}`
-        answer.textContent = message;
-        answerContainer.append(answer);
-    }
-    if (message.includes("lose")){
-        computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
-        answer.textContent = message;
-        answerContainer.append(answer);
-    }
-
-    if (humanScore == 5){
-        answer.textContent = "You won the game! Congratulations!";
-    }
-    if (computerScore == 5){
-        answer.textContent = "The computer won the game! Better luck next time."
-    }
-});
 
