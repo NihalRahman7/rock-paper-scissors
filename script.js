@@ -15,11 +15,6 @@ function getComputerChoice() {
     return choice;
 }
 
-function getHumanChoice() {
-    let choice = prompt("Pick between rock paper or scissors").toLowerCase();
-    return choice;
-}
-
 function playRound(humanChoice, computerChoice) {
     let message;
 
@@ -48,38 +43,113 @@ function playRound(humanChoice, computerChoice) {
     return message;
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
 
-    for (let i = 0; i < 5; i++){
-        const computerChoice = getComputerChoice();
-        const humanChoice = getHumanChoice();
-        let message = playRound(humanChoice, computerChoice)
-        console.log(computerChoice);
-        console.log(humanChoice);
-        console.log(message);
+let humanSelection = undefined;
 
-        if (message.includes("win")){
-            humanScore++;
-        }
-        if (message.includes("lose")){
-            computerScore++;
-        }
+const answerContainer = document.querySelector("#answer");
+const answer = document.createElement("p");
+
+const choices = ["rock", "paper", "scissors"];
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
+
+let humanScoreMsg = document.querySelector("#humanScoreMsg");
+let computerScoreMsg = document.querySelector("#computerScoreMsg");
+let humanScore = 0;
+let computerScore = 0;
+
+
+btnRock.addEventListener("click", function() {
+    humanSelection = choices[0];
+    const computerSelection = getComputerChoice();
+    let message = playRound(humanSelection, computerSelection);
+    console.log(humanSelection);
+    console.log(computerSelection);
+    console.log(message);
+
+    if (message.includes("tie")){
+        answer.textContent = message;
+        answerContainer.append(answer);
+    } 
+    if (message.includes("win")){
+        humanScoreMsg.textContent = `Human score: ${++humanScore}`
+        answer.textContent = message;
+        answerContainer.append(answer);
+    }
+    if (message.includes("lose")){
+        computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
+        answer.textContent = message;
+        answerContainer.append(answer);
     }
 
-    console.log("Human score: " + humanScore);
-    console.log("Computer score: " + computerScore);
+    if (humanScore == 5){
+        answer.textContent = "You won the game! Congratulations!";
+    }
+    if (computerScore == 5){
+        answer.textContent = "The computer won the game! Better luck next time."
+    }
+});
 
-    if (humanScore > computerScore) {
-        console.log("The winner is the human!");
-    }
-    else if (humanScore == computerScore) {
-        console.log("It's a tie!");
-    }
-    else {
-        console.log("The winner is the computer!");
-    }
-}
+btnPaper.addEventListener("click", function() {
+    humanSelection = choices[1];
+    const computerSelection = getComputerChoice();
+    let message = playRound(humanSelection, computerSelection);
+    console.log(humanSelection);
+    console.log(computerSelection);
+    console.log(message);
 
-playGame();
+    if (message.includes("tie")){
+        answer.textContent = message;
+        answerContainer.append(answer);
+    } 
+    if (message.includes("win")){
+        humanScoreMsg.textContent = `Human score: ${++humanScore}`
+        answer.textContent = message;
+        answerContainer.append(answer);
+    }
+    if (message.includes("lose")){
+        computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
+        answer.textContent = message;
+        answerContainer.append(answer);
+    }
+
+    if (humanScore == 5){
+        answer.textContent = "You won the game! Congratulations!";
+    }
+    if (computerScore == 5){
+        answer.textContent = "The computer won the game! Better luck next time."
+    }
+});
+
+btnScissors.addEventListener("click", function() {
+    humanSelection = choices[2];
+    const computerSelection = getComputerChoice();
+    let message = playRound(humanSelection, computerSelection);
+    console.log(humanSelection);
+    console.log(computerSelection);
+    console.log(message);
+
+    if (message.includes("tie")){
+        answer.textContent = message;
+        answerContainer.append(answer);
+    } 
+    if (message.includes("win")){
+        humanScoreMsg.textContent = `Human score: ${++humanScore}`
+        answer.textContent = message;
+        answerContainer.append(answer);
+    }
+    if (message.includes("lose")){
+        computerScoreMsg.textContent = `Computer score: ${++computerScore}`;
+        answer.textContent = message;
+        answerContainer.append(answer);
+    }
+
+    if (humanScore == 5){
+        answer.textContent = "You won the game! Congratulations!";
+    }
+    if (computerScore == 5){
+        answer.textContent = "The computer won the game! Better luck next time."
+    }
+});
+
