@@ -5,9 +5,6 @@ const answerContainer = document.querySelector("#answer");
 const answer = document.createElement("p");
 
 const choices = ["rock", "paper", "scissors"];
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
 const buttons = document.querySelectorAll(".button");
 
 let humanScoreMsg = document.querySelector("#humanScoreMsg");
@@ -84,9 +81,11 @@ buttons.forEach(button => {
                 answer.textContent = message;
                 answerContainer.append(answer);
             }
+
+            showWinnerMsg();
         }
 
-        showWinnerMsg();
+        
     })
     
     
