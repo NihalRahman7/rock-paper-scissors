@@ -3,9 +3,10 @@ const MAX_SCORE = 5;
 let humanSelection = undefined;
 const answerContainer = document.querySelector("#answer");
 const answer = document.createElement("p");
-
 const choices = ["rock", "paper", "scissors"];
+
 const buttons = document.querySelectorAll(".button");
+const restartBtn = document.querySelector("#restart");
 
 let humanScoreMsg = document.querySelector("#humanScoreMsg");
 let computerScoreMsg = document.querySelector("#computerScoreMsg");
@@ -13,7 +14,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 buttons.forEach(button => {
-    button.addEventListener("click", function(event) {
+    button.addEventListener("click", (event) => {
         const clickedButton = event.currentTarget;
         
         if (clickedButton.textContent == "Rock"){
@@ -72,7 +73,7 @@ buttons.forEach(button => {
                 answerContainer.append(answer);
             } 
             if (message.includes("win")){
-                humanScoreMsg.textContent = `Human score: ${++humanScore}`
+                humanScoreMsg.textContent = `Human score: ${++humanScore}`;
                 answer.textContent = message;
                 answerContainer.append(answer);
             }
@@ -83,17 +84,28 @@ buttons.forEach(button => {
             }
 
             showWinnerMsg();
-        }
-
-        
+        }        
     })
-    
-    
+})
+
+restartBtn.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    humanScoreMsg.textContent = `Human score: 0`;
+    computerScoreMsg.textContent = `Computer score: 0`;
+    answer.textContent = "You restarted the game";
+    enableButtons();
 })
 
 function disabledButtons(){
     buttons.forEach(button => {
         button.disabled = true;
+    });
+}
+
+function enableButtons(){
+    buttons.forEach(button => {
+        button.disabled = false;
     });
 }
 
