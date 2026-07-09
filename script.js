@@ -19,7 +19,7 @@ buttons.forEach(button => {
     button.addEventListener("click", function(event) {
         const clickedButton = event.currentTarget;
         
-        if (clickedButton.textContent = "Rock"){
+        if (clickedButton.textContent == "Rock"){
             humanSelection = choices[0];
             const computerSelection = getComputerChoice();
             let message = playRound(humanSelection, computerSelection);
@@ -42,7 +42,7 @@ buttons.forEach(button => {
             showWinnerMsg();
         }
 
-        else if (clickedButton.textContent = "Paper"){
+        else if (clickedButton.textContent == "Paper"){
             humanSelection = choices[1];
             const computerSelection = getComputerChoice();
             let message = playRound(humanSelection, computerSelection);
@@ -65,7 +65,7 @@ buttons.forEach(button => {
             showWinnerMsg();
         }
 
-        else if (clickedButton.textContent = "Scissors"){
+        else if (clickedButton.textContent == "Scissors"){
             humanSelection = choices[2];
             const computerSelection = getComputerChoice();
             let message = playRound(humanSelection, computerSelection);
