@@ -6,7 +6,7 @@ so far about JS and further solidify my basics. This is a simple rock paper scis
 in the console.
 
 ## Update
-I have remove all console.logs and moved the game over on a UI from with the user can interact with buttons to pick
+I have removed all console.logs and moved the game over on a UI from with the user can interact with buttons to pick
 between rock, paper or scissors as well as a restart button to reset the game midway or after the end of the game when one player
 has reached 5 points.
 
